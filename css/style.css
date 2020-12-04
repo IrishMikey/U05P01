@@ -42,20 +42,49 @@ header {
     text-align: center;
     padding: 1em;
 }
-input, button {
+.container input, button {
     border: 0;
     outline: none;
 }
-
+.popover {
+    min-width: 15em;
+    min-height: 15em;
+}
+#superDiv{
+    display: flex;
+    flex-direction: row;
+}
+#addRoomDiv{
+    color: #2667FF;
+    display: flex;
+    flex-direction: column;
+    text-align: end;    
+    
+}
+#roomIconP{
+    background-color:#2667FF ;
+    color: white;
+    border-radius: 50%;
+}
+#addRoomSection{
+    background-color: rgb(120, 187, 250); 
+    min-height: 60%;  
+    text-align: center;  
+}
 #nocheDiv, #roomDiv{
     display: flex;
     flex-direction: column;
     font-size: large;
 }
+.guestDivs{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2px;
+}
+.guestDivs input{
+    max-width: 30%;
+}
 h4{
     color: rgb(50, 149, 50);
-}
-.nghtOptions{
-    background-color:red;
-    color: black;
 }

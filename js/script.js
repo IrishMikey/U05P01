@@ -2,13 +2,6 @@ $(document).ready(function () {
     $('[data-toggle="popover"]').popover();
 });
 
-
-// var destinoNombre = "";
-// var fechaEntrada = "";
-// var numNoches = "";
-// var numRooms = "";
-// var numGuests = "";
-
 function asignValues() {
     const destinoInput = document.getElementById("destinoInput");
 
@@ -21,6 +14,7 @@ function asignValues() {
     const roomsBtn = document.getElementById("roomsBtn");
     setRoom(roomsBtn);
 }
+
 function getToday(fechaInput) {
     var now = new Date();
 
@@ -73,10 +67,6 @@ function setNochesNums(numArray, nocheDiv, title) {
     });
 }
 
-// function nightAsign(value) {
-//     console.log(value);
-// }
-
 function setRoom(roomsBtn) {
 
     var roomDiv = document.createElement("div");
@@ -87,7 +77,7 @@ function setRoom(roomsBtn) {
     title.appendChild(titleTxt);
     roomDiv.appendChild(title);
 
-    var adultoSpan = document.createElement("span");
+    var adultoSpan = document.createElement("div");
 
     var adultoLabel = document.createElement("label");
     var adultoLabelTxt = document.createTextNode("Adultos");
@@ -96,9 +86,9 @@ function setRoom(roomsBtn) {
     var numMaxAdultos = "4"
     var numMinAdultos = "1"
 
-    setRoomData(adultoLabel, adultoLabelTxt, adultoSpan, numMaxAdultos, numMinAdultos, roomDiv);
+    setGuestData(adultoLabel, adultoLabelTxt, adultoSpan, numMaxAdultos, numMinAdultos, roomDiv);
 
-    var kidsSpan = document.createElement("span");
+    var kidsSpan = document.createElement("div");
 
     var kidsLabel = document.createElement("label");
     var kidsLabelTxt = document.createTextNode("Niños");
@@ -106,14 +96,21 @@ function setRoom(roomsBtn) {
     var numMaxkids = "3"
     var numMinkids = "0"
 
-    setRoomData(kidsLabel, kidsLabelTxt, kidsSpan, numMaxkids, numMinkids, roomDiv);
+    setGuestData(kidsLabel, kidsLabelTxt, kidsSpan, numMaxkids, numMinkids, roomDiv);
+
+    var SuperDiv = document.createElement("div");
+    SuperDiv.setAttribute("id","superDiv");
+
+    SuperDiv.appendChild(roomDiv);
+    addRoom(SuperDiv);
+
+    createPopover(roomsBtn, SuperDiv);
 
 
-    createPopover(roomsBtn, roomDiv);
+}
+function setGuestData(label, labelTxt, span, max, min, div) {
 
-};
-function setRoomData(label, labelTxt, span, max, min, div) {
-
+    span.setAttribute("class", "guestDivs");
     const input = document.createElement("input");
     input.setAttribute("type", "number");
     input.setAttribute("min", min);
@@ -126,11 +123,42 @@ function setRoomData(label, labelTxt, span, max, min, div) {
     span.appendChild(input);
     div.appendChild(span);
 }
+function addRoom(SuperDiv){
 
+    var addRoomDiv = document.createElement("div");
+    addRoomDiv.setAttribute("id","addRoomDiv");
+
+    var addRoomSection = document.createElement("div");
+    addRoomSection.setAttribute("id","addRoomSection");
+
+    var addRoomIconP = document.createElement("span");
+    addRoomIconP.setAttribute("id","roomIconP")
+
+    var addRoomIcon = document.createTextNode("+");
+    addRoomIconP.appendChild(addRoomIcon);
+
+    var addRoomTxtSpan = document.createElement("p");
+    var addRoomTxt = document.createTextNode("ADD ROOM");
+    addRoomTxtSpan.appendChild(addRoomTxt);
+
+    var addRoomDoneSpan = document.createElement("p");
+    var addRoomDoneTxt = document.createTextNode("DONE");
+    addRoomDoneSpan.appendChild(addRoomDoneTxt);
+
+    addRoomSection.appendChild(addRoomIconP);
+
+    addRoomSection.appendChild(addRoomTxtSpan);
+
+    addRoomDiv.appendChild(addRoomSection);
+    addRoomDiv.appendChild(addRoomDoneSpan);
+
+    SuperDiv.appendChild(addRoomDiv);
+}
 function createPopover(btn, data) {
 
     $(btn).popover({
         placement: "bottom",
+        trigger: "focus",
         content: data,
         html: true
     });
