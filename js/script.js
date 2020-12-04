@@ -81,12 +81,13 @@ function setRoom(roomsBtn) {
 
     var roomDiv = document.createElement("div");
     roomDiv.setAttribute("id","roomDiv");
-    
+
     var title = document.createElement("h4");
     var titleTxt = document.createTextNode("Habitación");
     title.appendChild(titleTxt);
     roomDiv.appendChild(title);
 
+    var adultoSpan = document.createElement("span");
 
     var adultoLabel = document.createElement("label");
     var adultoLabelTxt = document.createTextNode("Adultos");
@@ -95,7 +96,9 @@ function setRoom(roomsBtn) {
     var numMaxAdultos = "4"
     var numMinAdultos = "1"
 
-    setRoomData(adultoLabel, adultoLabelTxt, roomDiv, numMaxAdultos, numMinAdultos);
+    setRoomData(adultoLabel, adultoLabelTxt, adultoSpan, numMaxAdultos, numMinAdultos, roomDiv);
+
+    var kidsSpan = document.createElement("span");
 
     var kidsLabel = document.createElement("label");
     var kidsLabelTxt = document.createTextNode("Niños");
@@ -103,12 +106,13 @@ function setRoom(roomsBtn) {
     var numMaxkids = "3"
     var numMinkids = "0"
 
-    setRoomData(kidsLabel, kidsLabelTxt, roomDiv, numMaxkids, numMinkids);
+    setRoomData(kidsLabel, kidsLabelTxt, kidsSpan, numMaxkids, numMinkids, roomDiv);
+
 
     createPopover(roomsBtn, roomDiv);
 
 };
-function setRoomData(label, labelTxt, div, max, min) {
+function setRoomData(label, labelTxt, span, max, min, div) {
 
     const input = document.createElement("input");
     input.setAttribute("type", "number");
@@ -118,8 +122,9 @@ function setRoomData(label, labelTxt, div, max, min) {
     input.setAttribute("step", "1");
     
     label.appendChild(labelTxt);
-    div.appendChild(label);
-    div.appendChild(input);
+    span.appendChild(label);
+    span.appendChild(input);
+    div.appendChild(span);
 }
 
 function createPopover(btn, data) {
