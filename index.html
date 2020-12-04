@@ -1,0 +1,50 @@
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>U05P01</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css" />
+
+</head>
+
+
+<body>
+    <header class="container-fluid justify-content-center">
+        <h1>Reserva Vacaciones</h1>
+    </header>
+    <form action="#">
+        <div class="container">
+            <div class="row" id="rowInner">
+                <div class="col" id="divDestino">
+                    <label for="destination">Destino</label>
+                    <input id="destinoInput" type="text" name="destination" placeholder="Hotel o destino">
+                </div>
+                <div class="col" id="divFecha">
+                    <label for="date">Fecha</label>
+                    <input id="fechaInput" type="date" name="date" />
+                </div>
+                <div class="col" id="divNoches" for="nights">
+                    <label>Número de noches</label>
+                    <input type="text" id="nochesBtn" name="nights" placeholder="0 noches" readonly>
+                </div>
+                <div class="col" id="divRoom">
+                    <label for="rooms ">Habitaciones</label>
+                    <input type="text" id="roomsBtn" name="rooms" placeholder="1 room 1 guests" readonly>
+                </div>
+            </div>
+            <input id="btnSearch"type="submit" value="Buscar">
+        </div>
+    </form>
+
+
+
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="js/script.js "></script>
+
+</html>

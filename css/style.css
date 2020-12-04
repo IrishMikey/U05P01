@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+body {
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    background-color: #ADD7F6;
+    background-image: url("../img/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    
+}
+
+body{
+    backdrop-filter: blur(8px);
+}
+.container {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;    
+}
+
+.row {
+    padding: 1em;
+}
+#rowInner{
+    background-color: #87BFFF;
+    margin: 1em;
+}
+
+.col{
+    padding: 1ex;
+    margin: 5px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #2667FF;
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+input, button {
+    border: 0;
+    outline: none;
+}
+
+#nocheDiv, #roomDiv{
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+}
+h4{
+    color: rgb(50, 149, 50);
+}
+.nghtOptions{
+    background-color:red;
+    color: black;
+}
